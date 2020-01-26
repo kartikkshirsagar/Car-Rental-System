@@ -11,6 +11,7 @@ public class Mainscreen{
         {
             u1.getDetails();
             u1.register(u1, userDatabase);
+            u1.loginDetails(userDatabase);
         }
         else if(scanner.nextInt()==2)
         {
