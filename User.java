@@ -11,24 +11,56 @@ public class User extends Person{
     User(){}
     
 
-    public void bookCab(User user){
-        System.out.println("Please enter pick up location\n1 for City A\n2 for City B\n3 for City C\n4 for City 4");
+    public void bookCab(User user,City[] cities){
+        System.out.println("Please enter pick up location\n1 for City A\n2 for City B\n3 for City C\n4 for City 4\n5 for City 5\n");
         Scanner scanner = new Scanner(System.in);
-        int ans,ans2,ans3;
+        int ans,ans2,ans3,flag=0;
+        City pick=cities[0],via=cities[0],drop=cities[0];
         ans=scanner.nextInt();
         System.out.println("VIA?(Press 9 for direct route)");
         ans2=scanner.nextInt();
         System.out.println("Drop Off location?");
         ans3 = scanner.nextInt();
+        
         if(ans2!=9)
-        {
+        {   
+            for (City city : cities) {
+                if(ans==city.Id)
+                {
+                    pick=city;
+                }
+                if(ans2==city.Id)
+                {
+                    via=city;
+                }
+                if(ans3==city.Id)
+                {
+                    drop=city;
+                }
+            }
+            Ride r1 = new Ride(pick,via,drop);
+            flag=1;
             System.out.println("So your path is City "+ans+ "---> City " + ans2+ "--->City "+ ans3);
         }
         else{
+
             System.out.println("So your path is City "+ans+ "---> City " + ans3);
+            for (City city : cities)
+            {
+                if(ans==city.Id)
+                    {
+                        pick=city;
+                    }
+                if(ans3==city.Id)
+                    {
+                        drop=city;
+                    }
+            }
+            Ride r2 = new Ride(pick,drop); 
+            flag=2;   
         }
         
-        System.out.println("Select Car");
+        System.out.println("Select a Car Category\n1 for Mini\n2 for Micro\n 3 for Luxury\n");
 
 
         
