@@ -1,3 +1,3 @@
 interface Cars{
-    abstract void getCost();
+    abstract void getCostMultiplier();
 }

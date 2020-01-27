@@ -1,6 +1,11 @@
 import java.util.*;
 public class User extends Person{
 
+    public void bookCab(User user){
+        System.out.println("Please enter pick up location\n1 for City A\n2 for City B\n3 for City C");
+        
+    }
+
     public void loginDetails(ArrayList<User> userDatabase){
         boolean b;
         Mainscreen m = new Mainscreen();
@@ -13,11 +18,18 @@ public class User extends Person{
         if(b==true)
         {
             //go ahead with cab booking
-            
+            for (User user : userDatabase) {
+                if(user.userId == this.userId)
+                {
+                    bookCab(user);
+                }
+            }
+
         }
         else{
-            System.out.println("If you want to go to register and login screen please type 9, if you want to login again press any other key");
-            if(scanner.nextInt()==9)
+            System.out.println("If you want to go to register and login screen please type 9, if you want to login again press any other integer");
+            int ans=scanner.nextInt();
+            if(ans==9)
             {
                 m.run(userDatabase);
             }

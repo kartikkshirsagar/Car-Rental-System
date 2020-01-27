@@ -45,7 +45,7 @@ public class Person{
         this.mobnumber = scanner.nextLine();
         while(this.mobnumber.length()<=9 || this.mobnumber.startsWith(" "))
         {
-            System.out.println("Please enter valid email");
+            System.out.println("Please enter valid mobile number");
             this.mobnumber=scanner.nextLine();
         }
         
