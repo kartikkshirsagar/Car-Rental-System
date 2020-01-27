@@ -1,8 +1,34 @@
 import java.util.*;
 public class User extends Person{
 
+    User(String name , String mobno,String email,String ID ,String pass){
+        this.name = name;
+        this.mobnumber = mobno;
+        this.email = email;
+        this.userId = ID;
+        this.password = pass;
+    }
+
     public void bookCab(User user){
-        System.out.println("Please enter pick up location\n1 for City A\n2 for City B\n3 for City C");
+        System.out.println("Please enter pick up location\n1 for City A\n2 for City B\n3 for City C\n4 for City 4");
+        Scanner scanner = new Scanner(System.in);
+        int ans,ans2,ans3;
+        ans=scanner.nextInt();
+        System.out.println("VIA?(Press 9 for direct route)");
+        ans2=scanner.nextInt();
+        System.out.println("Drop Off location?");
+        ans3 = scanner.nextInt();
+        if(ans2!=9)
+        {
+            System.out.println("So your path is City "+ans+ "---> City " + ans2+ "--->City "+ ans3);
+        }
+        else{
+            System.out.println("So your path is City "+ans+ "---> City " + ans3);
+        }
+        
+
+
+
         
     }
 
