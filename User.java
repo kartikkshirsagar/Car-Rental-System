@@ -8,6 +8,8 @@ public class User extends Person{
         this.userId = ID;
         this.password = pass;
     }
+    User(){}
+    
 
     public void bookCab(User user){
         System.out.println("Please enter pick up location\n1 for City A\n2 for City B\n3 for City C\n4 for City 4");
@@ -26,7 +28,7 @@ public class User extends Person{
             System.out.println("So your path is City "+ans+ "---> City " + ans3);
         }
         
-
+        System.out.println("Select Car");
 
 
         
