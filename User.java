@@ -11,11 +11,11 @@ public class User extends Person{
     User(){}
     
 
-    public void bookCab(User user,City[] cities){
+    public void bookCab(User user,ArrayList<City> cities){
         System.out.println("Please enter pick up location\n1 for City A\n2 for City B\n3 for City C\n4 for City 4\n5 for City 5\n");
         Scanner scanner = new Scanner(System.in);
         int ans,ans2,ans3,flag=0;
-        City pick=cities[0],via=cities[0],drop=cities[0];
+        City pick=cities.get(0),via=cities.get(0),drop=cities.get(0);
         ans=scanner.nextInt();
         System.out.println("VIA?(Press 9 for direct route)");
         ans2=scanner.nextInt();
@@ -66,7 +66,7 @@ public class User extends Person{
         
     }
 
-    public void loginDetails(ArrayList<User> userDatabase){
+    public void loginDetails(ArrayList<User> userDatabase,ArrayList<City> cities){
         boolean b;
         Mainscreen m = new Mainscreen();
         System.out.println("Please enter your Id...");
@@ -81,7 +81,7 @@ public class User extends Person{
             for (User user : userDatabase) {
                 if(user.userId == this.userId)
                 {
-                    bookCab(user);
+                    bookCab(user,cities);
                 }
             }
 
@@ -91,10 +91,10 @@ public class User extends Person{
             int ans=scanner.nextInt();
             if(ans==9)
             {
-                m.run(userDatabase);
+                m.run(userDatabase,cities);
             }
             else{
-                loginDetails(userDatabase);
+                loginDetails(userDatabase,cities);
             }
             
             

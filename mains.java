@@ -17,6 +17,6 @@ public class mains{
 
 
         Mainscreen m = new Mainscreen();
-        m.run(userdatabase);
+        m.run(userdatabase,cities);
     }
 }
