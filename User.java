@@ -12,7 +12,7 @@ public class User extends Person{
     
 
     public void bookCab(User user,ArrayList<City> cities,ArrayList<Cars>car_data){
-        while(true){
+        
         System.out.println("Please enter pick up location\n1 for City 1\n2 for City 2\n3 for City 3\n4 for City 4\n5 for City 5\n");
         Scanner scanner = new Scanner(System.in);
         int ans,ans2,ans3,flag=0;
@@ -63,7 +63,8 @@ public class User extends Person{
         
         System.out.println("Select a Car Category\n1 for Mini\n2 for Micro\n3 for Luxury\n");
         Scanner myObj = new Scanner(System.in);
-        if(myObj.nextInt()==1)
+        ans=myObj.nextInt();
+        if(ans==1)
         {
             if(car_data.get(0).availability)
             {
@@ -75,12 +76,24 @@ public class User extends Person{
             }
             
         }
-        else if(myObj.nextInt()==2)
+        else if(ans==2)
         {
             if(car_data.get(1).availability)
             {
                 car_data.get(1).displayCarInfo();
                 car_data.get(1).availability=false;
+            }
+            else{
+                System.out.println("Sorry Car not available!!");
+            }
+            
+        }
+        else if(ans==3)
+        {
+            if(car_data.get(2).availability)
+            {
+                car_data.get(2).displayCarInfo();
+                car_data.get(2).availability=false;
             }
             else{
                 System.out.println("Sorry Car not available!!");
@@ -94,8 +107,10 @@ public class User extends Person{
             System.out.println("Okay then enter!!");
             bookCab(user, cities, car_data);
         }
-        else break;
+        else {
+            System.out.println("Thanks for your booking, details have been sent to" + user.email);
         }
+    
     }
 
     public void loginDetails(ArrayList<User> userDatabase,ArrayList<City> cities,ArrayList<Cars>car_data){

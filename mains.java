@@ -24,7 +24,7 @@ public class mains{
         userdatabase.add(u1);
         userdatabase.add(u2);
         Mainscreen m = new Mainscreen();
-        System.out.println(userdatabase.size());
+        //System.out.println(userdatabase.size());
         m.run(userdatabase,cities,car_data);
     }
 }
