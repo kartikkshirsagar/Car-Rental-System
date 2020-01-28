@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Mainscreen{
-    public void run(ArrayList<User> userDatabase,ArrayList<City> cities){
+    public void run(ArrayList<User> userDatabase,ArrayList<City> cities,ArrayList<Cars> car_data){
         User u1 = new User();
         System.out.println("---------------------Welcome to Car Rental System---------------------");
         System.out.println("Type the operation number you want to do");
@@ -13,15 +13,15 @@ public class Mainscreen{
             u1.getDetails();
             u1.register(u1, userDatabase);
             System.out.println("Redirecting you to Login Screen");
-            u1.loginDetails(userDatabase,cities);
+            u1.loginDetails(userDatabase,cities,car_data);
         }
         else if(ans==2)
         {
-            u1.loginDetails(userDatabase,cities);
+            u1.loginDetails(userDatabase,cities,car_data);
         }
         else{
             System.out.println("!!Please enter valid option!!");
-            run(userDatabase,cities);
+            run(userDatabase,cities,car_data);
         }
         
     }
