@@ -11,7 +11,8 @@ public class User extends Person{
     User(){}
     
 
-    public void bookCab(User user,ArrayList<City> cities){
+    public void bookCab(User user,ArrayList<City> cities,ArrayList<Cars>car_data){
+        while(true){
         System.out.println("Please enter pick up location\n1 for City A\n2 for City B\n3 for City C\n4 for City 4\n5 for City 5\n");
         Scanner scanner = new Scanner(System.in);
         int ans,ans2,ans3,flag=0;
@@ -61,10 +62,42 @@ public class User extends Person{
         }
         
         System.out.println("Select a Car Category\n1 for Mini\n2 for Micro\n 3 for Luxury\n");
-        
+        Scanner myObj = new Scanner(System.in);
+        if(myObj.nextInt()==1)
+        {
+            if(car_data.get(0).availability)
+            {
+                car_data.get(0).displayCarInfo();
+                car_data.get(0).availability=false;
+            }
+            else{
+                System.out.println("SOrryyyy CAr not available!!");
+            }
+            
+        }
+        else if(myObj.nextInt()==2)
+        {
+            if(car_data.get(1).availability)
+            {
+                car_data.get(1).displayCarInfo();
+                car_data.get(1).availability=false;
+            }
+            else{
+                System.out.println("SOrryyyy CAr not available!!");
+            }
+            
+        }
+        System.out.println("want to book one more??(1 for yes 0 for no)");
+        Scanner ans4=new Scanner(System.in);
+        if(ans4.nextInt()==1)
+        {
+            System.out.println("Okay then enter!!");
+        }
+        else break;
+        }
     }
 
-    public void loginDetails(ArrayList<User> userDatabase,ArrayList<City> cities){
+    public void loginDetails(ArrayList<User> userDatabase,ArrayList<City> cities,ArrayList<Cars>car_data){
         boolean b;
         Mainscreen m = new Mainscreen();
         System.out.println("Please enter your Id...");
@@ -79,7 +112,7 @@ public class User extends Person{
             for (User user : userDatabase) {
                 if(user.userId == this.userId)
                 {
-                    bookCab(user,cities);
+                    bookCab(user,cities,car_data);
                 }
             }
 
@@ -89,14 +122,15 @@ public class User extends Person{
             int ans=scanner.nextInt();
             if(ans==9)
             {
-                m.run(userDatabase,cities);
+                m.run(userDatabase,cities,car_data);
             }
             else{
-                loginDetails(userDatabase,cities);
+                loginDetails(userDatabase,cities,car_data);
             }
             
             
         }
+
 
     }
 
