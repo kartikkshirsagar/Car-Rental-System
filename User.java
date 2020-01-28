@@ -87,7 +87,7 @@ public class User extends Person{
             }
             
         }
-        System.out.println("want to book one more??(1 for yes 0 for no)");
+        System.out.println("Want to book one more cab??(1 for yes 0 for no)");
         Scanner ans4=new Scanner(System.in);
         if(ans4.nextInt()==1)
         {
