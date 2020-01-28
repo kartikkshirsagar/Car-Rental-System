@@ -12,6 +12,7 @@ public class User extends Person{
     
 
     public void bookCab(User user,ArrayList<City> cities,ArrayList<Cars>car_data){
+        while(true){
         System.out.println("Please enter pick up location\n1 for City A\n2 for City B\n3 for City C\n4 for City 4\n5 for City 5\n");
         Scanner scanner = new Scanner(System.in);
         int ans,ans2,ans3,flag=0;
@@ -69,6 +70,9 @@ public class User extends Person{
                 car_data.get(0).displayCarInfo();
                 car_data.get(0).availability=false;
             }
+            else{
+                System.out.println("SOrryyyy CAr not available!!");
+            }
             
         }
         else if(myObj.nextInt()==2)
@@ -78,7 +82,18 @@ public class User extends Person{
                 car_data.get(1).displayCarInfo();
                 car_data.get(1).availability=false;
             }
+            else{
+                System.out.println("SOrryyyy CAr not available!!");
+            }
             
+        }
+        System.out.println("want to book one more??(1 for yes 0 for no)");
+        Scanner ans4=new Scanner(System.in);
+        if(ans4.nextInt()==1)
+        {
+            System.out.println("Okay then enter!!");
+        }
+        else break;
         }
     }
 
@@ -115,6 +130,7 @@ public class User extends Person{
             
             
         }
+
 
     }
 
