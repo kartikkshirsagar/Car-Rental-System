@@ -4,6 +4,7 @@ public class mains{
     public static void main(String[] args){
         ArrayList<User> userdatabase= new ArrayList<User>();
         ArrayList<City> cities=new ArrayList<City>();
+        ArrayList<Cars> cars=new ArrayList<Cars>();
         User u1=new User("kartik","1234567890","kartik.kshirsagar@outlook.com","kshirsagar","kartik");
         User u2 = new User("suruchi","0987654321","suruchishrey@gmail.com","shrey","suruchi");
         Driver d1 = new Driver("Doe","8765432109","MH098183");
