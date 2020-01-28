@@ -6,7 +6,7 @@ public class Cars{
      void getCostMultiplier(Ride r){
        
      };
-     void displayCarInfo(String name,String numberPlate,int category)
+     void displayCarInfo()
      {
          System.out.println("-------------------------------------------");
          System.out.println("Car Name: "+ name+"\n");
@@ -18,5 +18,6 @@ public class Cars{
          this.category = category;
          this.name = name;
          this.numberPlate=numberPlate; 
+         this.availability=true;
      }
 }
