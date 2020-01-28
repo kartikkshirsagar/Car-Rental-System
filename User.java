@@ -145,9 +145,9 @@ public class User extends Person{
         for(i=0;i<database.size() && flag==0;i++)
         {
             User u=database.get(i);
-            if(u.userId==id)
+            if(u.userId.equals(id))
             {   
-                if(u.password==password)
+                if(u.password.equals(password))
                 {
                     flag=1;
                     System.out.println("Login Successful\nWelcome "+ u.name);

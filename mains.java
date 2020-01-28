@@ -6,6 +6,7 @@ public class mains{
         ArrayList<City> cities=new ArrayList<City>();
         
         ArrayList<Cars> car_data=new ArrayList<Cars>();
+
         User u1=new User("kartik","1234567890","kartik.kshirsagar@outlook.com","kshirsagar","kartik");
         User u2 = new User("suruchi","0987654321","suruchishrey@gmail.com","shrey","suruchi");
         Driver d1 = new Driver("Doe","8765432109","MH098183");
@@ -23,6 +24,7 @@ public class mains{
         userdatabase.add(u1);
         userdatabase.add(u2);
         Mainscreen m = new Mainscreen();
+        System.out.println(userdatabase.size());
         m.run(userdatabase,cities,car_data);
     }
 }
