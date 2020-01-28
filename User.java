@@ -13,7 +13,7 @@ public class User extends Person{
 
     public void bookCab(User user,ArrayList<City> cities,ArrayList<Cars>car_data){
         while(true){
-        System.out.println("Please enter pick up location\n1 for City A\n2 for City B\n3 for City C\n4 for City 4\n5 for City 5\n");
+        System.out.println("Please enter pick up location\n1 for City 1\n2 for City 2\n3 for City 3\n4 for City 4\n5 for City 5\n");
         Scanner scanner = new Scanner(System.in);
         int ans,ans2,ans3,flag=0;
         City pick=cities.get(0),via=cities.get(0),drop=cities.get(0);
@@ -61,7 +61,7 @@ public class User extends Person{
             flag=2;   
         }
         
-        System.out.println("Select a Car Category\n1 for Mini\n2 for Micro\n 3 for Luxury\n");
+        System.out.println("Select a Car Category\n1 for Mini\n2 for Micro\n3 for Luxury\n");
         Scanner myObj = new Scanner(System.in);
         if(myObj.nextInt()==1)
         {
@@ -92,6 +92,7 @@ public class User extends Person{
         if(ans4.nextInt()==1)
         {
             System.out.println("Okay then enter!!");
+            bookCab(user, cities, car_data);
         }
         else break;
         }
@@ -132,6 +133,10 @@ public class User extends Person{
         }
 
 
+    }
+
+    public void register(User u1,ArrayList<User> database){
+        database.add(u1);
     }
 
     public boolean loginValidation(String id,String password,ArrayList<User> database){

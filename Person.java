@@ -8,12 +8,12 @@ public class Person{
     String mobnumber;
     String password;
 
-    String generateId(){
+     String generateId(){
         String set ="QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890@#";
         StringBuilder random = new StringBuilder();
         Random rnd = new Random();
         while(random.length()<7){
-            int index=(int)((rnd.nextFloat()*10*random.length())%64);
+            int index=(int)((rnd.nextFloat()*100)%64);
             random.append(set.charAt(index));
         }
         String randomId = random.toString();
@@ -21,9 +21,7 @@ public class Person{
     
     }
     
-    public void register(User u1,ArrayList<User> database){
-        database.add(u1);
-    }
+    
 
     public void getDetails(){
         Scanner scanner=new Scanner(System.in);

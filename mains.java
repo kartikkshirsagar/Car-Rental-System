@@ -19,6 +19,7 @@ public class mains{
         
         car_data.add(new Cars("i20","MH-04-610",1));
         car_data.add(new Cars("i10","MH-04-710",2));
+        car_data.add(new Cars("Tesla","MH-31-999",3));
         
         Mainscreen m = new Mainscreen();
         m.run(userdatabase,cities,car_data);
