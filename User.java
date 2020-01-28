@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class User extends Person{
 
     User(String name , String mobno,String email,String ID ,String pass){
@@ -15,7 +16,7 @@ public class User extends Person{
         
         System.out.println("Please enter pick up location\n1 for City 1\n2 for City 2\n3 for City 3\n4 for City 4\n5 for City 5\n");
         Scanner scanner = new Scanner(System.in);
-        int ans,ans2,ans3,flag=0;
+        int ans,ans2,ans3,flag=0,cost;
         City pick=cities.get(0),via=cities.get(0),drop=cities.get(0);
         ans=scanner.nextInt();
         System.out.println("VIA?(Press 9 for direct route)");
@@ -40,6 +41,9 @@ public class User extends Person{
                 }
             }
             Ride r1 = new Ride(pick,via,drop);
+            cost = r1.getCost(r1);
+            cost=Math.abs(cost);
+
             flag=1;
             System.out.println("So your path is City "+ans+ "---> City " + ans2+ "--->City "+ ans3);
         }
@@ -58,11 +62,16 @@ public class User extends Person{
                     }
             }
             Ride r2 = new Ride(pick,drop); 
+            cost=r2.getCost(r2);
+            cost=Math.abs(cost);
             flag=2;   
         }
-        
+        System.out.println(cost);
+
         System.out.println("Select a Car Category\n1 for Mini\n2 for Micro\n3 for Luxury\n");
         Scanner myObj = new Scanner(System.in);
+        //Random rnd = new Random();
+       // int index = rnd.nextInt(5);
         ans=myObj.nextInt();
         if(ans==1)
         {
@@ -70,6 +79,7 @@ public class User extends Person{
             {
                 car_data.get(0).displayCarInfo();
                 car_data.get(0).availability=false;
+
             }
             else{
                 System.out.println("Sorry Car not available!!");
@@ -100,6 +110,17 @@ public class User extends Person{
             }
             
         }
+        flag=0;
+        mains obj = new mains();
+        ArrayList<Driver> drivers = new ArrayList<Driver>();
+        drivers=obj.getList(); 
+        for (Driver driver : drivers) {
+            if(driver.availabilty==true  && flag==0 ){
+                driver.displayDriver(driver);
+                flag=1;
+            }
+        }
+        System.out.println("Your Trip Cost would be " + cost);
         System.out.println("Want to book one more cab??(1 for yes 0 for no)");
         Scanner ans4=new Scanner(System.in);
         if(ans4.nextInt()==1)
@@ -112,6 +133,9 @@ public class User extends Person{
         }
     
     }
+
+
+
 
     public void loginDetails(ArrayList<User> userDatabase,ArrayList<City> cities,ArrayList<Cars>car_data){
         boolean b;

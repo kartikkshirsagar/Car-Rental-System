@@ -13,6 +13,10 @@ public class mains{
         Driver d2 = new Driver("John","0987654321","PJ908765");
         Driver d3 = new Driver("Stonks","9999999999","XL09876");
         Driver d4 = new Driver("Salman K","6969696969","BBH420");
+        drivers.add(d1);
+        drivers.add(d4);
+        drivers.add(d3);
+        drivers.add(d2);
         cities.add(new City(120,75,1));
         cities.add(new City(21,77,2));
         cities.add(new City(84,9,3));
@@ -26,5 +30,9 @@ public class mains{
         Mainscreen m = new Mainscreen();
         //System.out.println(userdatabase.size());
         m.run(userdatabase,cities,car_data);
+    }
+    public static ArrayList<Driver> drivers = new ArrayList<Driver>();
+    public ArrayList<Driver> getList() {
+        return drivers;
     }
 }

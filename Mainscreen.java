@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Mainscreen{
     public void run(ArrayList<User> userDatabase,ArrayList<City> cities,ArrayList<Cars> car_data){
         User u1 = new User();
-        System.out.println("---------------------Welcome to Car Rental System---------------------");
+        System.out.println("---------------------Welcome to Car Rental System---------------------\n\n");
         System.out.println("Type the operation number you want to do");
         System.out.println("1.Register\n2.Login");
         Scanner scanner = new Scanner(System.in);
