@@ -71,7 +71,7 @@ public class User extends Person{
                 car_data.get(0).availability=false;
             }
             else{
-                System.out.println("SOrryyyy CAr not available!!");
+                System.out.println("Sorry Car not available!!");
             }
             
         }
@@ -83,7 +83,7 @@ public class User extends Person{
                 car_data.get(1).availability=false;
             }
             else{
-                System.out.println("SOrryyyy CAr not available!!");
+                System.out.println("Sorry Car not available!!");
             }
             
         }
