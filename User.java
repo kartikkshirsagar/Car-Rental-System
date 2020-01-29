@@ -149,9 +149,9 @@ public class User extends Person implements Respondent{
             bookCab(user, cities, car_data);
         }
         else {
-            System.out.println("Thanks for your booking, details have been sent to" + user.email);
+            System.out.println("Thanks for your booking, details have been sent to " + user.email);
         }
-        rate(user);
+        user.rate(user);
     
     }
 
