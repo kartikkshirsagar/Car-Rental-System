@@ -1,12 +1,9 @@
-public class Cars{
+public class Cars extends Vehicle{
     String name;
     int category;
     String numberPlate;
     boolean availability;
-     void getCostMultiplier(Ride r){
-       
-     };
-     void displayCarInfo()
+     void displayInfo()
      {
          System.out.println("-------------------------------------------");
          System.out.println("Car Name: "+ name+"\n");

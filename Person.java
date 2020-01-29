@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class Person{
 
@@ -25,8 +26,13 @@ public class Person{
 
     public void getDetails(){
         Scanner scanner=new Scanner(System.in);
-        System.out.println("Enter your name");
-        this.name = scanner.nextLine();
+        try{
+            System.out.println("Enter your name");
+            this.name = scanner.nextLine();
+        }catch(InputMismatchException e){
+            System.out.println("Error in input type "+ e);
+        }
+        
         while(this.name.length()<=1 || this.name.startsWith(" "))
         {
             System.out.println("Please enter valid name");
@@ -34,14 +40,17 @@ public class Person{
         }
         System.out.println("Enter your E-Mail");
         this.email = scanner.nextLine();
-        while(this.email.length()<=3 || this.email.startsWith(" ")|| !this.email.contains("@")||!this.email.contains("."))
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pat = Pattern.compile(regex);
+
+        while(!(pat.matcher(this.email).matches()))
         {
             System.out.println("Please enter valid email");
             this.email=scanner.nextLine();
         }
         System.out.println("Enter your Mobile Number");
         this.mobnumber = scanner.nextLine();
-        while(this.mobnumber.length()<=9 || this.mobnumber.startsWith(" "))
+        while(this.mobnumber.length()==10 || this.mobnumber.startsWith(" "))
         {
             System.out.println("Please enter valid mobile number");
             this.mobnumber=scanner.nextLine();

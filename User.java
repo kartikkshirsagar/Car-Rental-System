@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class User extends Person{
+public class User extends Person implements Respondent{
 
     User(String name , String mobno,String email,String ID ,String pass){
         this.name = name;
@@ -12,6 +12,15 @@ public class User extends Person{
     User(){}
     
 
+    public void rate(User u){
+        System.out.println("How many stars would you like to give to our service(out of 5)?");
+        int star;
+        Scanner scanner1 = new Scanner(System.in);
+        star = scanner1.nextInt();
+        System.out.println("Thank you for your feedback!! "+ u.name + " You gave us "+ star+ "stars.");
+        
+
+    }
     public void bookCab(User user,ArrayList<City> cities,ArrayList<Cars>car_data){
         
         System.out.println("Please enter pick up location\n1 for City 1\n2 for City 2\n3 for City 3\n4 for City 4\n5 for City 5\n");
@@ -66,23 +75,26 @@ public class User extends Person{
             cost=Math.abs(cost);
             flag=2;   
         }
-        System.out.println(cost);
+        //System.out.println(cost);
 
         System.out.println("Select a Car Category\n1 for Mini\n2 for Micro\n3 for Luxury\n");
         Scanner myObj = new Scanner(System.in);
         //Random rnd = new Random();
        // int index = rnd.nextInt(5);
         ans=myObj.nextInt();
+        int flag1=0;
         if(ans==1)
         {
             if(car_data.get(0).availability)
             {
-                car_data.get(0).displayCarInfo();
+                car_data.get(0).displayInfo();
                 car_data.get(0).availability=false;
+                flag1=0;
 
             }
             else{
                 System.out.println("Sorry Car not available!!");
+                flag1=1;
             }
             
         }
@@ -90,11 +102,13 @@ public class User extends Person{
         {
             if(car_data.get(1).availability)
             {
-                car_data.get(1).displayCarInfo();
+                car_data.get(1).displayInfo();
                 car_data.get(1).availability=false;
+                flag1=0;
             }
             else{
                 System.out.println("Sorry Car not available!!");
+                flag1=1;
             }
             
         }
@@ -102,11 +116,13 @@ public class User extends Person{
         {
             if(car_data.get(2).availability)
             {
-                car_data.get(2).displayCarInfo();
+                car_data.get(2).displayInfo();
                 car_data.get(2).availability=false;
+                flag1=0;
             }
             else{
                 System.out.println("Sorry Car not available!!");
+                flag1=1;
             }
             
         }
@@ -115,12 +131,15 @@ public class User extends Person{
         ArrayList<Driver> drivers = new ArrayList<Driver>();
         drivers=obj.getList(); 
         for (Driver driver : drivers) {
-            if(driver.availabilty==true  && flag==0 ){
+            if(driver.availabilty==true  && flag==0 && flag1==0 ){
                 driver.displayDriver(driver);
                 flag=1;
             }
         }
-        System.out.println("Your Trip Cost would be " + cost);
+        if(flag1==0){
+            System.out.println("Your Trip Cost would be " + cost);
+        }
+        
         System.out.println("Want to book one more cab??(1 for yes 0 for no)");
         Scanner ans4=new Scanner(System.in);
         if(ans4.nextInt()==1)
@@ -131,6 +150,7 @@ public class User extends Person{
         else {
             System.out.println("Thanks for your booking, details have been sent to" + user.email);
         }
+        rate(user);
     
     }
 
@@ -204,4 +224,9 @@ public class User extends Person{
         return retval;
 
     }
+}
+
+interface Respondent{
+    public void rate(User user);
+    //public void issues();
 }
