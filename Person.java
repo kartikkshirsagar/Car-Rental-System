@@ -40,7 +40,10 @@ public class Person{
         }
         System.out.println("Enter your E-Mail");
         this.email = scanner.nextLine();
-        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                        "[a-zA-Z0-9_+&*-]+)*@" + 
+                         "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                             "A-Z]{2,7}$";
         Pattern pat = Pattern.compile(regex);
 
         while(!(pat.matcher(this.email).matches()))
@@ -50,7 +53,7 @@ public class Person{
         }
         System.out.println("Enter your Mobile Number");
         this.mobnumber = scanner.nextLine();
-        while(this.mobnumber.length()==10 || this.mobnumber.startsWith(" "))
+        while(this.mobnumber.length()!=10 || this.mobnumber.startsWith(" "))
         {
             System.out.println("Please enter valid mobile number");
             this.mobnumber=scanner.nextLine();

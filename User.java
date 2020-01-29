@@ -133,6 +133,7 @@ public class User extends Person implements Respondent{
         for (Driver driver : drivers) {
             if(driver.availabilty==true  && flag==0 && flag1==0 ){
                 driver.displayDriver(driver);
+                driver.availabilty=false;
                 flag=1;
             }
         }
@@ -166,11 +167,12 @@ public class User extends Person implements Respondent{
         System.out.println("Please enter your Password...");
         this.password = scanner.nextLine();
         b=loginValidation(this.userId, this.password, userDatabase);
+        System.out.println(b);
         if(b==true)
         {
             //go ahead with cab booking
             for (User user : userDatabase) {
-                if(user.userId == this.userId)
+                if(user.userId.equals(this.userId))
                 {
                     bookCab(user,cities,car_data);
                 }
@@ -221,6 +223,7 @@ public class User extends Person implements Respondent{
             retval=false;
             System.out.println("Authentication Failure...\nIncorrect Credentials");
         }
+
         return retval;
 
     }
